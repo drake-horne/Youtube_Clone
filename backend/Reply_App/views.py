@@ -13,7 +13,7 @@ from .serializers import ReplySerializer
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def user_replys(request):
+def user_replys(request,pk):
     print(
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
