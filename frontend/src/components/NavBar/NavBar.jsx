@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
@@ -16,7 +16,18 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <SearchBar></SearchBar>
+          {props.name}
+          {props.name}
+          {props.name}
+          {props.name}
+          {props.name}
+          {props.name}
+          {props.name}
+          {props.name}
+          {props.name}
+          {props.name}
+          {props.name}
+          
         </li>
         <li>
           {user ? (
