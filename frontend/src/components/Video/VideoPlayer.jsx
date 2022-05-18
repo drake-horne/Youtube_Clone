@@ -1,5 +1,18 @@
+import React from "react";
 
-const VideoPlayer = (props)=>{
-    return(<h1>This is the video player</h1>)
-}
-export default VideoPlayer
+
+const YoutubeEmbed = (props) => {
+  return(
+  <div>
+    <iframe 
+
+      src={`https://www.youtube.com/embed/${props.videoId}`} 
+
+    >
+    </iframe>
+  </div>
+)};
+
+
+
+export default YoutubeEmbed;

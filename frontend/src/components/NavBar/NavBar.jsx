@@ -16,17 +16,7 @@ const Navbar = (props) => {
           </Link>
         </li>
         <li>
-          {props.name}
-          {props.name}
-          {props.name}
-          {props.name}
-          {props.name}
-          {props.name}
-          {props.name}
-          {props.name}
-          {props.name}
-          {props.name}
-          {props.name}
+
           
         </li>
         <li>

@@ -11,9 +11,10 @@ from django.shortcuts import get_object_or_404
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def get_all_comments(request):
-    comments = Comment.objects.all()
-    serializer = CommentSerializer(comments, many=True)
-    return Response(serializer.data)
+    if request.method == 'GET':
+        comments = Comment.objects.all()
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET', 'PUT'])

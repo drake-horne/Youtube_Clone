@@ -1,5 +1,6 @@
 import axios from "axios"
-
+import Comment from "./CommentLikes"
+import ReplyForm from "../Replys/ReplyForm"
 const CommentList = (props) =>{
 
 
@@ -17,8 +18,7 @@ const CommentList = (props) =>{
                 <th>user</th>
                 <th>video_id</th>
                 <th>text</th>
-                <th>likes</th>
-                <th>dislikes</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -28,8 +28,9 @@ const CommentList = (props) =>{
                               <td>{entry.user}</td>  
                               <td>{entry.video_id}</td>  
                               <td>{entry.text}</td>  
-                              <td>{entry.likes}</td>  
-                              <td>{entry.dislikes}</td>  
+                                
+                              <td><Comment/><ReplyForm/></td> 
+                               
                                
                             </tr>
 

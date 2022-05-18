@@ -1,23 +1,28 @@
 import React, {useContext, useState} from 'react';
-import AuthContext from '../../context/AuthContext';
+import useAuth from "../../hooks/useAuth"
 import axios from 'axios';
+import { Navigate, useNavigate } from "react-router-dom"
+import useCustomForm from "../../hooks/useCustomForm"
+
 
 
 const CommentForm = (props) => {
 
-    const{user, token} = useContext(AuthContext)
-    const[video_id, setVideo_id] = useState('')
+    const{user, token} = useAuth()
+    const[videoId, setVideoId] = useState(props.videoId)
     const[text, setText] = useState('')
+    const navigate = useNavigate()
 
     const postComments = async (newComment)=>{
         try{
-          let response = await axios.post(`http://127.0.0.1:8000/api/Comment_App/ADD`, newComment, {headers : {Authorization : `Bearer ${token}`}})
+          
+          let response = await axios.post('http://127.0.0.1:8000/api/Comment_App/ADD', newComment, {headers : {Authorization: 'Bearer ' + token}})
           
           console.log(response)
-          
+          navigate("/")
         }
         catch(ex){
-          console.log('error in get all comments request')
+          console.log('error in post comments request')
     
         }  
     
@@ -25,12 +30,14 @@ const CommentForm = (props) => {
     
     function handleSubmit(event, props) {
         event.preventDefault(props);
+        
         let newComment = {
             user: user.id,
-            video_id: 1,
+            video_id: '',
             text: text,
             likes: 0,
-            dislikes: 0,
+            dislikes: 0
+
             
         }
         console.log(newComment)
